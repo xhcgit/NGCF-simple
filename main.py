@@ -211,7 +211,7 @@ class Model():
 
 
     def getModelName(self):
-        title = "SR-TIME_"
+        title = "NGCF_"
         ModelName = title + self.args.dataset + "_" + modelUTCStr + \
         "_reg_" + str(self.args.reg)+ \
         "_batch_" + str(self.args.batch) + \
