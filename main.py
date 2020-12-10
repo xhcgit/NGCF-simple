@@ -268,9 +268,9 @@ class Model():
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='SR-HGNN main.py')
+    parser = argparse.ArgumentParser(description='NGCF main.py')
     #dataset params
-    parser.add_argument('--dataset', type=str, default="Yelp", help="Epinions,Yelp,Tianchi")
+    parser.add_argument('--dataset', type=str, default="Yelp", help="Yelp")
     parser.add_argument('--seed', type=int, default=29)
 
     parser.add_argument('--hide_dim', type=int, default=4)
