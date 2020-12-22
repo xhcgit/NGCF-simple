@@ -122,10 +122,10 @@ class Model():
             self.train_loss.append(epoch_loss)
             log("epoch %d/%d, epoch_loss=%.2f"% (e, self.args.epochs, epoch_loss))
             
-            HR, NDCG = self.validModel(self.test_loader)
+            HR, NDCG = self.validModel(self.valid_loader)
             self.his_hr.append(HR)
             self.his_ndcg.append(NDCG)
-            log("epoch %d/%d, test HR = %.4f, valid NDCG = %.4f"%(e, self.args.epochs, HR, NDCG))
+            log("epoch %d/%d, valid HR = %.4f, valid NDCG = %.4f"%(e, self.args.epochs, HR, NDCG))
             # if e%10 == 0 and e != 0:
             # log(self.getModelName())
             # HR, NDCG = self.test()
@@ -145,6 +145,8 @@ class Model():
             if cvWait == self.args.patience:
                 log('Early stopping! best epoch = %d'%(best_epoch))
                 self.loadModel(self.modelName)
+                HR, NDCG = self.validModel(self.test_loader)
+                log("epoch %d/%d, test HR = %.4f, test NDCG = %.4f"%(e, self.args.epochs, HR, NDCG))
                 break
         
         
